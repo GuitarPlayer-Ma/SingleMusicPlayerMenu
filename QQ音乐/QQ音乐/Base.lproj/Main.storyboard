@@ -149,7 +149,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lkq.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="4kR-aD-GL6">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lkq.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="4kR-aD-GL6" userLabel="iconView">
                                 <rect key="frame" x="180" y="130" width="240" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="4kR-aD-GL6" secondAttribute="height" multiplier="1:1" id="rjt-7o-dg6"/>
@@ -187,6 +187,10 @@
                             <constraint firstAttribute="trailing" secondItem="46o-Os-bap" secondAttribute="trailing" id="zwk-et-3kZ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backImageView" destination="dkV-ds-UN2" id="tbb-jJ-3Zg"/>
+                        <outlet property="iconView" destination="4kR-aD-GL6" id="9Yf-Qd-IYb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hZW-Se-btY" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="2s2-86-yWE">

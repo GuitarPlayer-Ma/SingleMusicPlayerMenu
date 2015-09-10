@@ -55,6 +55,10 @@
 		000C6C3D1BA1D21500FF8253 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 000C6C391BA1D21500FF8253 /* AppDelegate.m */; };
 		000C6C3E1BA1D21500FF8253 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 000C6C3A1BA1D21500FF8253 /* main.m */; };
 		000C6C411BA1D24A00FF8253 /* JSJPlayingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 000C6C401BA1D24A00FF8253 /* JSJPlayingViewController.m */; };
+		000C6C441BA1DA7C00FF8253 /* JSJAudioTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 000C6C431BA1DA7C00FF8253 /* JSJAudioTool.m */; };
+		000C6C471BA1DE9100FF8253 /* JSJMusicTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 000C6C461BA1DE9100FF8253 /* JSJMusicTool.m */; };
+		000C6C4A1BA1DEB300FF8253 /* JSJMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 000C6C491BA1DEB300FF8253 /* JSJMusic.m */; };
+		60B77FDE6A9F643E5C135E66 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A8921D52D4FD7C81F952D175 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +126,15 @@
 		000C6C3A1BA1D21500FF8253 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		000C6C3F1BA1D24A00FF8253 /* JSJPlayingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSJPlayingViewController.h; sourceTree = "<group>"; };
 		000C6C401BA1D24A00FF8253 /* JSJPlayingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSJPlayingViewController.m; sourceTree = "<group>"; };
+		000C6C421BA1DA7C00FF8253 /* JSJAudioTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSJAudioTool.h; sourceTree = "<group>"; };
+		000C6C431BA1DA7C00FF8253 /* JSJAudioTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSJAudioTool.m; sourceTree = "<group>"; };
+		000C6C451BA1DE9100FF8253 /* JSJMusicTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSJMusicTool.h; sourceTree = "<group>"; };
+		000C6C461BA1DE9100FF8253 /* JSJMusicTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSJMusicTool.m; sourceTree = "<group>"; };
+		000C6C481BA1DEB300FF8253 /* JSJMusic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSJMusic.h; sourceTree = "<group>"; };
+		000C6C491BA1DEB300FF8253 /* JSJMusic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSJMusic.m; sourceTree = "<group>"; };
+		4B486D18D14133E054BCE91A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		69393C6B402FF30BF807841F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		A8921D52D4FD7C81F952D175 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60B77FDE6A9F643E5C135E66 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +162,8 @@
 				000C6BB41BA1D01500FF8253 /* QQ音乐 */,
 				000C6BCE1BA1D01600FF8253 /* QQ音乐Tests */,
 				000C6BB31BA1D01500FF8253 /* Products */,
+				F09CFBD912BB5CCE839BE260 /* Pods */,
+				0CDD2F9168C5251A2CD4AD35 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -294,6 +310,8 @@
 		000C6C361BA1D21500FF8253 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				000C6C481BA1DEB300FF8253 /* JSJMusic.h */,
+				000C6C491BA1DEB300FF8253 /* JSJMusic.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -311,6 +329,10 @@
 		000C6C3B1BA1D21500FF8253 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				000C6C421BA1DA7C00FF8253 /* JSJAudioTool.h */,
+				000C6C431BA1DA7C00FF8253 /* JSJAudioTool.m */,
+				000C6C451BA1DE9100FF8253 /* JSJMusicTool.h */,
+				000C6C461BA1DE9100FF8253 /* JSJMusicTool.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -322,6 +344,23 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		0CDD2F9168C5251A2CD4AD35 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A8921D52D4FD7C81F952D175 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F09CFBD912BB5CCE839BE260 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				69393C6B402FF30BF807841F /* Pods.debug.xcconfig */,
+				4B486D18D14133E054BCE91A /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -329,9 +368,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 000C6BD51BA1D01600FF8253 /* Build configuration list for PBXNativeTarget "QQ音乐" */;
 			buildPhases = (
+				F2DC13ECA9F444A09CFC82EE /* Check Pods Manifest.lock */,
 				000C6BAE1BA1D01500FF8253 /* Sources */,
 				000C6BAF1BA1D01500FF8253 /* Frameworks */,
 				000C6BB01BA1D01500FF8253 /* Resources */,
+				56BB1786BF7DB16B467AFAE2 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -458,12 +499,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		56BB1786BF7DB16B467AFAE2 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2DC13ECA9F444A09CFC82EE /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		000C6BAE1BA1D01500FF8253 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				000C6C471BA1DE9100FF8253 /* JSJMusicTool.m in Sources */,
+				000C6C441BA1DA7C00FF8253 /* JSJAudioTool.m in Sources */,
 				000C6C3E1BA1D21500FF8253 /* main.m in Sources */,
+				000C6C4A1BA1DEB300FF8253 /* JSJMusic.m in Sources */,
 				000C6C3D1BA1D21500FF8253 /* AppDelegate.m in Sources */,
 				000C6C411BA1D24A00FF8253 /* JSJPlayingViewController.m in Sources */,
 			);
@@ -589,6 +666,7 @@
 		};
 		000C6BD61BA1D01600FF8253 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69393C6B402FF30BF807841F /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "QQ音乐/Info.plist";
@@ -599,6 +677,7 @@
 		};
 		000C6BD71BA1D01600FF8253 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4B486D18D14133E054BCE91A /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "QQ音乐/Info.plist";
@@ -660,6 +739,7 @@
 				000C6BD71BA1D01600FF8253 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		000C6BD81BA1D01600FF8253 /* Build configuration list for PBXNativeTarget "QQ音乐Tests" */ = {
 			isa = XCConfigurationList;
@@ -668,6 +748,7 @@
 				000C6BDA1BA1D01600FF8253 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

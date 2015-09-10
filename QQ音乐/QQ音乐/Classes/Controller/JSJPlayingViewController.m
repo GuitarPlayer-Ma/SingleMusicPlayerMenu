@@ -7,8 +7,14 @@
 //
 
 #import "JSJPlayingViewController.h"
+#import "JSJMusic.h"
+#import "JSJAudioTool.h"
+#import "JSJMusicTool.h"
+#import <Masonry.h>
 
 @interface JSJPlayingViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *backImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *iconView;
 
 @end
 
@@ -16,22 +22,46 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    // 给背景图片添加毛玻璃效果
+    [self setupBlurGlassView];
+    
+    // 播放音乐
+    [self beginPlayingMusic];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)setupBlurGlassView
+{
+    UIToolbar *toolBar = [[UIToolbar alloc] init];
+    toolBar.barStyle = UIBarStyleBlack;
+    // 添加约束
+    toolBar.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.backImageView addSubview:toolBar];
+    [toolBar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.backImageView);
+    }];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)beginPlayingMusic
+{
+    // 拿到当前播放的歌曲
+    JSJMusic *playingMusic = [JSJMusicTool playingMusic];
+    [JSJAudioTool playMusicWithMusicName:playingMusic.filename];
 }
-*/
+
+// 更改状态栏样式
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
+// 设置小头像为圆形
+- (void)viewWillLayoutSubviews
+{
+    self.iconView.layer.cornerRadius = self.iconView.bounds.size.width * 0.5;
+    self.iconView.layer.masksToBounds = YES;
+    self.iconView.layer.borderWidth = 7;
+    self.iconView.layer.borderColor = [UIColor colorWithRed:55/255.0 green:55/255.0 blue:55/255.0 alpha:1.0].CGColor;
+}
 
 @end
