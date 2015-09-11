@@ -34,7 +34,7 @@ static NSMutableDictionary *_audioPlayers;
     AudioServicesPlayAlertSound(soundID);
 }
 
-+ (void)playMusicWithMusicName:(NSString *)musicName
++ (AVAudioPlayer *)playMusicWithMusicName:(NSString *)musicName
 {
     // 从字典中取出AVAudioPlayer
     AVAudioPlayer *audioPlayer = _audioPlayers[musicName];
@@ -46,6 +46,8 @@ static NSMutableDictionary *_audioPlayers;
         [_audioPlayers setObject:audioPlayer forKey:musicName];
     }
     [audioPlayer play];
+    
+    return audioPlayer;
 }
 
 + (void)pauseMusicWithMusicName:(NSString *)musicName

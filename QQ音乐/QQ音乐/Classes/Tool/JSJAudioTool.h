@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface JSJAudioTool : NSObject
 /** 播放音效 */
 + (void)playSoundWithSoundName:(NSString *)soundName;
 /** 播放音乐 */
-+ (void)playMusicWithMusicName:(NSString *)musicName;
++ (AVAudioPlayer *)playMusicWithMusicName:(NSString *)musicName;
 /** 暂停播放音乐 */
 + (void)pauseMusicWithMusicName:(NSString *)musicName;
 /** 停止播放音乐 */

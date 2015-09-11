@@ -58,6 +58,7 @@
 		000C6C441BA1DA7C00FF8253 /* JSJAudioTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 000C6C431BA1DA7C00FF8253 /* JSJAudioTool.m */; };
 		000C6C471BA1DE9100FF8253 /* JSJMusicTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 000C6C461BA1DE9100FF8253 /* JSJMusicTool.m */; };
 		000C6C4A1BA1DEB300FF8253 /* JSJMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 000C6C491BA1DEB300FF8253 /* JSJMusic.m */; };
+		00A543831BA2674100E93302 /* NSString+JSJTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A543821BA2674100E93302 /* NSString+JSJTime.m */; };
 		60B77FDE6A9F643E5C135E66 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A8921D52D4FD7C81F952D175 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -132,6 +133,8 @@
 		000C6C461BA1DE9100FF8253 /* JSJMusicTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSJMusicTool.m; sourceTree = "<group>"; };
 		000C6C481BA1DEB300FF8253 /* JSJMusic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSJMusic.h; sourceTree = "<group>"; };
 		000C6C491BA1DEB300FF8253 /* JSJMusic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSJMusic.m; sourceTree = "<group>"; };
+		00A543811BA2674100E93302 /* NSString+JSJTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JSJTime.h"; sourceTree = "<group>"; };
+		00A543821BA2674100E93302 /* NSString+JSJTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JSJTime.m"; sourceTree = "<group>"; };
 		4B486D18D14133E054BCE91A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		69393C6B402FF30BF807841F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		A8921D52D4FD7C81F952D175 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -329,6 +332,7 @@
 		000C6C3B1BA1D21500FF8253 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				00A543801BA2671800E93302 /* Category */,
 				000C6C421BA1DA7C00FF8253 /* JSJAudioTool.h */,
 				000C6C431BA1DA7C00FF8253 /* JSJAudioTool.m */,
 				000C6C451BA1DE9100FF8253 /* JSJMusicTool.h */,
@@ -342,6 +346,15 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		00A543801BA2671800E93302 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				00A543811BA2674100E93302 /* NSString+JSJTime.h */,
+				00A543821BA2674100E93302 /* NSString+JSJTime.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		0CDD2F9168C5251A2CD4AD35 /* Frameworks */ = {
@@ -540,6 +553,7 @@
 				000C6C471BA1DE9100FF8253 /* JSJMusicTool.m in Sources */,
 				000C6C441BA1DA7C00FF8253 /* JSJAudioTool.m in Sources */,
 				000C6C3E1BA1D21500FF8253 /* main.m in Sources */,
+				00A543831BA2674100E93302 /* NSString+JSJTime.m in Sources */,
 				000C6C4A1BA1DEB300FF8253 /* JSJMusic.m in Sources */,
 				000C6C3D1BA1D21500FF8253 /* AppDelegate.m in Sources */,
 				000C6C411BA1D24A00FF8253 /* JSJPlayingViewController.m in Sources */,
