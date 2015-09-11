@@ -10,11 +10,13 @@
 #import "JSJMusic.h"
 #import "JSJAudioTool.h"
 #import "JSJMusicTool.h"
-#import <Masonry.h>
 #import "NSString+JSJTime.h"
 #import "CALayer+JSJAnimate.h"
 #import "JSJLrcView.h"
 #import "JSJLrcLabel.h"
+
+#import <Masonry.h>
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface JSJPlayingViewController ()<AVAudioPlayerDelegate, UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *backImageView;
@@ -115,6 +117,9 @@
     
     // 添加歌词定时器
     [self addLrcTimer];
+    
+    // 设置锁屏界面的信息
+    [self setupLockScreenInfomationWithPlayingMusic:playingMusic];
 }
 
 - (void)addIconViewAnimate
@@ -126,6 +131,44 @@
     rotationAnim.duration = 35.0;
     [self.iconView.layer addAnimation:rotationAnim forKey:nil];
 }
+
+- (void)setupLockScreenInfomationWithPlayingMusic:(JSJMusic *)playingMusic
+{
+    // 获取锁屏中心
+    MPNowPlayingInfoCenter *infoCenter = [MPNowPlayingInfoCenter defaultCenter];
+    // 设置锁屏界面信息
+    NSMutableDictionary *playingInfo = [NSMutableDictionary dictionary];
+    playingInfo[MPMediaItemPropertyAlbumTitle] = playingMusic.name;
+    playingInfo[MPMediaItemPropertyArtist] = playingMusic.singer;
+    playingInfo[MPMediaItemPropertyArtwork] = [[MPMediaItemArtwork alloc] initWithImage:[UIImage imageNamed:playingMusic.icon]];
+    playingInfo[MPMediaItemPropertyPlaybackDuration] = @(self.currentPlayer.duration);
+    infoCenter.nowPlayingInfo = playingInfo;
+    // 让应用程序可以接受远程事件
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+}
+
+// 监听远程事件
+- (void)remoteControlReceivedWithEvent:(UIEvent *)event
+{
+    switch (event.subtype) {
+        case UIEventSubtypeRemoteControlPlay:
+        case UIEventSubtypeRemoteControlPause:
+            [self startOrPause:nil];
+            break;
+            
+        case UIEventSubtypeRemoteControlNextTrack:
+            [self nextMusic];
+            break;
+            
+        case UIEventSubtypeRemoteControlPreviousTrack:
+            [self previousMusic];
+            break;
+            
+        default:
+            break;
+    }
+}
+
 
 #pragma mark - 设置定时器
 - (void)addProgressTimer
@@ -191,8 +234,8 @@
 #pragma mark - 播放控制台按钮点击监听
 // 点击播放和暂停按钮
 - (IBAction)startOrPause:(UIButton *)sender {
-    sender.selected = !sender.isSelected;
-    if (!sender.isSelected) { // 暂停状态
+    self.startOrPauseButton.selected = !self.startOrPauseButton.isSelected;
+    if (!self.startOrPauseButton.isSelected) { // 暂停状态
         // 暂停歌曲
         [self.currentPlayer pause];
         // 移除定时器
