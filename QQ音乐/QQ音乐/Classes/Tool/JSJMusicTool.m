@@ -20,7 +20,7 @@ static JSJMusic *_playingMusic;
     // 初始化数组
     _musics = [JSJMusic objectArrayWithFilename:@"Musics.plist"];
     // 设置默认播放的歌曲
-    _playingMusic = _musics[0];
+    _playingMusic = _musics[7];
 }
 
 + (NSArray *)musics

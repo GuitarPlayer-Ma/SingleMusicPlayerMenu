@@ -24,13 +24,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="月半小夜曲" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBc-Fk-CQH" userLabel="歌曲名">
-                                        <rect key="frame" x="258" y="30" width="85" height="21"/>
+                                        <rect key="frame" x="258" y="30" width="85" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="李克勤" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3b-6g-joL" userLabel="歌手">
-                                        <rect key="frame" x="279" y="61" width="42" height="17"/>
+                                        <rect key="frame" x="279" y="60.5" width="42" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -155,8 +155,8 @@
                                     <constraint firstAttribute="height" constant="150" id="yS4-iR-ZEX"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="歌词的Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mds-iJ-yJ4">
-                                <rect key="frame" x="259" y="400" width="83" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mds-iJ-yJ4" customClass="JSJLrcLabel">
+                                <rect key="frame" x="300.5" y="400" width="0.0" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="DfW-JL-vQ4"/>
                                 </constraints>
@@ -170,7 +170,7 @@
                                     <constraint firstAttribute="width" secondItem="4kR-aD-GL6" secondAttribute="height" multiplier="1:1" id="rjt-7o-dg6"/>
                                 </constraints>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGQ-Dm-gZm" customClass="JSJLrcView">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGQ-Dm-gZm" customClass="JSJLrcView">
                                 <rect key="frame" x="0.0" y="100" width="600" height="350"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </scrollView>
@@ -206,6 +206,7 @@
                         <outlet property="backImageView" destination="dkV-ds-UN2" id="tbb-jJ-3Zg"/>
                         <outlet property="currentTimeLabel" destination="aS3-Xg-dAO" id="Exc-oh-09d"/>
                         <outlet property="iconView" destination="4kR-aD-GL6" id="9Yf-Qd-IYb"/>
+                        <outlet property="lrcLabel" destination="mds-iJ-yJ4" id="Rqb-WJ-RMi"/>
                         <outlet property="lrcView" destination="SGQ-Dm-gZm" id="Rai-6b-NaF"/>
                         <outlet property="progressView" destination="IJw-BF-nVz" id="aLQ-nU-dNa"/>
                         <outlet property="singerLabel" destination="I3b-6g-joL" id="QeZ-iG-a32"/>
@@ -221,7 +222,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="356" y="190"/>
+            <point key="canvasLocation" x="218" y="130"/>
         </scene>
     </scenes>
     <resources>

@@ -14,8 +14,9 @@
 #import "NSString+JSJTime.h"
 #import "CALayer+JSJAnimate.h"
 #import "JSJLrcView.h"
+#import "JSJLrcLabel.h"
 
-@interface JSJPlayingViewController ()<AVAudioPlayerDelegate>
+@interface JSJPlayingViewController ()<AVAudioPlayerDelegate, UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *backImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
 @property (weak, nonatomic) IBOutlet UILabel *songNameLabel;
@@ -25,12 +26,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *totalTimeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *startOrPauseButton;
 @property (weak, nonatomic) IBOutlet JSJLrcView *lrcView;
-
-
+@property (weak, nonatomic) IBOutlet JSJLrcLabel *lrcLabel;
 
 /** 进度条定时器 */
-@property (weak, nonatomic) NSTimer *progressTimer;
+@property (strong, nonatomic) NSTimer *progressTimer;
+/** 进度条定时器 */
+@property (strong, nonatomic) CADisplayLink *lrcTimer;
 @property (strong, nonatomic) AVAudioPlayer *currentPlayer;
+
 
 @end
 
@@ -50,6 +53,8 @@
     
     // 设置LvcView
     self.lrcView.contentSize = CGSizeMake(self.view.bounds.size.width * 2, 0);
+    self.lrcView.delegate = self;
+    self.lrcView.lrcLabel = self.lrcLabel;
 }
 
 - (void)setupBlurGlassView
@@ -107,6 +112,9 @@
     
     // 添加进度条定时器
     [self addProgressTimer];
+    
+    // 添加歌词定时器
+    [self addLrcTimer];
 }
 
 - (void)addIconViewAnimate
@@ -119,6 +127,7 @@
     [self.iconView.layer addAnimation:rotationAnim forKey:nil];
 }
 
+#pragma mark - 设置定时器
 - (void)addProgressTimer
 {
     [self updateProgressInfo];
@@ -132,11 +141,29 @@
     self.progressTimer = nil;
 }
 
+- (void)addLrcTimer
+{
+    self.lrcTimer = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateLrc)];
+    [self.lrcTimer addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
+}
+
+- (void)removeLrcTimer
+{
+    [self.lrcTimer invalidate];
+    self.lrcTimer = nil;
+}
+
+#pragma mark - 跟新信息
 - (void)updateProgressInfo
 {
     self.currentTimeLabel.text = [NSString stringWithTime:self.currentPlayer.currentTime];
     
     self.progressView.value = self.currentPlayer.currentTime / self.currentPlayer.duration;
+}
+
+- (void)updateLrc
+{
+    self.lrcView.currentTime = self.currentPlayer.currentTime;
 }
 
 #pragma mark - 滑块事件监听
@@ -191,7 +218,10 @@
 - (void)changeMusicWithNewMusic:(JSJMusic *)newMusic
 {
     // 暂停当前播放的歌曲
-    [self.currentPlayer stop];
+//    [self.currentPlayer stop];
+    JSJMusic *playingMusic = [JSJMusicTool playingMusic];
+    [JSJAudioTool stopMusicWithMusicName:playingMusic.filename];
+    
     // 设置为播放的歌曲
     [JSJMusicTool setPlayingMusic:newMusic];
     // 开始播放
@@ -204,6 +234,14 @@
     if (flag) {
         [self nextMusic];
     }
+}
+
+#pragma mark - 歌词view的代理方法
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGFloat alpha = scrollView.contentOffset.x / self.view.bounds.size.width;
+    self.lrcLabel.alpha = 1 - alpha;
+    self.iconView.alpha = 1 - alpha;
 }
 
 @end

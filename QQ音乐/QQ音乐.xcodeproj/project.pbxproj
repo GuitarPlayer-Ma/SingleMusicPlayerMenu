@@ -63,6 +63,8 @@
 		00A543891BA2AD5600E93302 /* JSJLrcView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A543881BA2AD5600E93302 /* JSJLrcView.m */; };
 		00A5438C1BA2B73D00E93302 /* JSJLrcTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A5438B1BA2B73D00E93302 /* JSJLrcTool.m */; };
 		00A5438F1BA2B9D100E93302 /* JSJLrcLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A5438E1BA2B9D100E93302 /* JSJLrcLine.m */; };
+		00A543921BA2CA7E00E93302 /* JSJLrcCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A543911BA2CA7E00E93302 /* JSJLrcCell.m */; };
+		00A543951BA2CB8800E93302 /* JSJLrcLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A543941BA2CB8800E93302 /* JSJLrcLabel.m */; };
 		60B77FDE6A9F643E5C135E66 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A8921D52D4FD7C81F952D175 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -147,6 +149,10 @@
 		00A5438B1BA2B73D00E93302 /* JSJLrcTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSJLrcTool.m; sourceTree = "<group>"; };
 		00A5438D1BA2B9D100E93302 /* JSJLrcLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSJLrcLine.h; sourceTree = "<group>"; };
 		00A5438E1BA2B9D100E93302 /* JSJLrcLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSJLrcLine.m; sourceTree = "<group>"; };
+		00A543901BA2CA7E00E93302 /* JSJLrcCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSJLrcCell.h; sourceTree = "<group>"; };
+		00A543911BA2CA7E00E93302 /* JSJLrcCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSJLrcCell.m; sourceTree = "<group>"; };
+		00A543931BA2CB8800E93302 /* JSJLrcLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSJLrcLabel.h; sourceTree = "<group>"; };
+		00A543941BA2CB8800E93302 /* JSJLrcLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSJLrcLabel.m; sourceTree = "<group>"; };
 		4B486D18D14133E054BCE91A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		69393C6B402FF30BF807841F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		A8921D52D4FD7C81F952D175 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -362,6 +368,10 @@
 			children = (
 				00A543871BA2AD5600E93302 /* JSJLrcView.h */,
 				00A543881BA2AD5600E93302 /* JSJLrcView.m */,
+				00A543901BA2CA7E00E93302 /* JSJLrcCell.h */,
+				00A543911BA2CA7E00E93302 /* JSJLrcCell.m */,
+				00A543931BA2CB8800E93302 /* JSJLrcLabel.h */,
+				00A543941BA2CB8800E93302 /* JSJLrcLabel.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -577,6 +587,8 @@
 				000C6C3E1BA1D21500FF8253 /* main.m in Sources */,
 				00A543831BA2674100E93302 /* NSString+JSJTime.m in Sources */,
 				000C6C4A1BA1DEB300FF8253 /* JSJMusic.m in Sources */,
+				00A543921BA2CA7E00E93302 /* JSJLrcCell.m in Sources */,
+				00A543951BA2CB8800E93302 /* JSJLrcLabel.m in Sources */,
 				000C6C3D1BA1D21500FF8253 /* AppDelegate.m in Sources */,
 				00A543891BA2AD5600E93302 /* JSJLrcView.m in Sources */,
 				000C6C411BA1D24A00FF8253 /* JSJPlayingViewController.m in Sources */,
