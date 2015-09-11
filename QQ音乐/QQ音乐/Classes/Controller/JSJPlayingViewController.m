@@ -12,6 +12,7 @@
 #import "JSJMusicTool.h"
 #import <Masonry.h>
 #import "NSString+JSJTime.h"
+#import "CALayer+JSJAnimate.h"
 
 @interface JSJPlayingViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *backImageView;
@@ -21,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UISlider *progressView;
 @property (weak, nonatomic) IBOutlet UILabel *currentTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalTimeLabel;
+@property (weak, nonatomic) IBOutlet UIButton *startOrPauseButton;
+
 
 /** 进度条定时器 */
 @property (weak, nonatomic) NSTimer *progressTimer;
@@ -72,6 +75,9 @@
 
 - (void)beginPlayingMusic
 {
+    // 设置播放按钮状态
+    self.startOrPauseButton.selected = YES;
+    
     // 拿到当前播放的歌曲
     JSJMusic *playingMusic = [JSJMusicTool playingMusic];
     
@@ -146,4 +152,40 @@
     [self updateProgressInfo];
 }
 
+#pragma mark - 播放控制台按钮点击监听
+// 点击播放和暂停按钮
+- (IBAction)startOrPause:(UIButton *)sender {
+    sender.selected = !sender.isSelected;
+    if (!sender.isSelected) { // 暂停状态
+        // 暂停歌曲
+        [self.currentPlayer pause];
+        // 移除定时器
+        [self removeProgressTimer];
+        // 暂停动画
+        [self.iconView.layer pauseAnimate];
+    }
+    else {
+        [self.currentPlayer play];
+        [self addProgressTimer];
+        [self.iconView.layer resumeAnimate];
+    }
+}
+// 下一首
+- (IBAction)nextMusic {
+    [self changeMusicWithNewMusic:[JSJMusicTool nextMusic]];
+}
+// 上一首
+- (IBAction)previousMusic {
+    [self changeMusicWithNewMusic:[JSJMusicTool previousMusic]];
+}
+
+- (void)changeMusicWithNewMusic:(JSJMusic *)newMusic
+{
+    // 暂停当前播放的歌曲
+    [self.currentPlayer stop];
+    // 设置为播放的歌曲
+    [JSJMusicTool setPlayingMusic:newMusic];
+    // 开始播放
+    [self beginPlayingMusic];
+}
 @end

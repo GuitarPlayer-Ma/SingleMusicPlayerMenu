@@ -28,7 +28,7 @@ static JSJMusic *_playingMusic;
     return _musics;
 }
 
-- (void)setPlayingMusic:(JSJMusic *)playingMusic
++ (void)setPlayingMusic:(JSJMusic *)playingMusic
 {
     _playingMusic = playingMusic;
 }

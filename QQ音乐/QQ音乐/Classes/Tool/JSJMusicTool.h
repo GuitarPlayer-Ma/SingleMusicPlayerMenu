@@ -12,7 +12,7 @@
 @interface JSJMusicTool : NSObject
 + (NSArray *)musics;
 /** 设置播放的歌曲 */
-- (void)setPlayingMusic:(JSJMusic *)playingMusic;
++ (void)setPlayingMusic:(JSJMusic *)playingMusic;
 /** 返回正在播放的歌曲 */
 + (JSJMusic *)playingMusic;
 /** 返回上一首播放的歌曲 */

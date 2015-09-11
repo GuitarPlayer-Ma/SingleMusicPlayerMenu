@@ -82,6 +82,9 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="selected" image="player_btn_pause_normal"/>
+                                        <connections>
+                                            <action selector="startOrPause:" destination="n3I-f3-x2F" eventType="touchUpInside" id="OAn-IX-7kX"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bw5-5U-zzd" userLabel="下一首">
                                         <rect key="frame" x="362" y="56" width="64" height="64"/>
@@ -90,6 +93,9 @@
                                         </state>
                                         <state key="selected" image="player_btn_next_normal"/>
                                         <state key="highlighted" image="player_btn_next_highlight"/>
+                                        <connections>
+                                            <action selector="nextMusic" destination="n3I-f3-x2F" eventType="touchUpInside" id="tmu-LT-lDj"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8g-Nb-tgs" userLabel="上一首">
                                         <rect key="frame" x="174" y="56" width="64" height="64"/>
@@ -98,6 +104,9 @@
                                         </state>
                                         <state key="selected" image="player_btn_pause_normal"/>
                                         <state key="highlighted" image="player_btn_pre_highlight"/>
+                                        <connections>
+                                            <action selector="previousMusic" destination="n3I-f3-x2F" eventType="touchUpInside" id="kEx-a6-Gh8"/>
+                                        </connections>
                                     </button>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="IJw-BF-nVz" userLabel="进度条">
                                         <rect key="frame" x="48" y="6" width="504" height="31"/>
@@ -200,6 +209,7 @@
                         <outlet property="progressView" destination="IJw-BF-nVz" id="aLQ-nU-dNa"/>
                         <outlet property="singerLabel" destination="I3b-6g-joL" id="QeZ-iG-a32"/>
                         <outlet property="songNameLabel" destination="bBc-Fk-CQH" id="NXk-kx-My2"/>
+                        <outlet property="startOrPauseButton" destination="aWv-uf-kTU" id="dcp-Zs-vUj"/>
                         <outlet property="totalTimeLabel" destination="R0G-Hx-eEp" id="48p-pb-kuc"/>
                     </connections>
                 </viewController>
