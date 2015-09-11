@@ -13,8 +13,9 @@
 #import <Masonry.h>
 #import "NSString+JSJTime.h"
 #import "CALayer+JSJAnimate.h"
+#import "JSJLrcView.h"
 
-@interface JSJPlayingViewController ()
+@interface JSJPlayingViewController ()<AVAudioPlayerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *backImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
 @property (weak, nonatomic) IBOutlet UILabel *songNameLabel;
@@ -23,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *currentTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalTimeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *startOrPauseButton;
+@property (weak, nonatomic) IBOutlet JSJLrcView *lrcView;
+
 
 
 /** 进度条定时器 */
@@ -44,6 +47,9 @@
     
     // 播放音乐
     [self beginPlayingMusic];
+    
+    // 设置LvcView
+    self.lrcView.contentSize = CGSizeMake(self.view.bounds.size.width * 2, 0);
 }
 
 - (void)setupBlurGlassView
@@ -73,6 +79,7 @@
     self.iconView.layer.borderColor = [UIColor colorWithRed:55/255.0 green:55/255.0 blue:55/255.0 alpha:1.0].CGColor;
 }
 
+#pragma mark - 开始播放音乐
 - (void)beginPlayingMusic
 {
     // 设置播放按钮状态
@@ -86,17 +93,19 @@
     self.singerLabel.text = playingMusic.singer;
     self.iconView.image = [UIImage imageNamed:playingMusic.icon];
     self.backImageView.image = [UIImage imageNamed:playingMusic.icon];
+    self.lrcView.lrcname = playingMusic.lrcname;
     
     // 播放音乐
     AVAudioPlayer *player = [JSJAudioTool playMusicWithMusicName:playingMusic.filename];
     self.currentPlayer = player;
+    self.currentPlayer.delegate = self;
     self.totalTimeLabel.text = [NSString stringWithTime:player.duration];
     self.currentTimeLabel.text = [NSString stringWithTime:player.currentTime];
     
     // 给iconView添加动画
     [self addIconViewAnimate];
     
-    // 添加定时器
+    // 添加进度条定时器
     [self addProgressTimer];
 }
 
@@ -188,4 +197,13 @@
     // 开始播放
     [self beginPlayingMusic];
 }
+
+#pragma mark - AVAudioPlayerDelegate
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    if (flag) {
+        [self nextMusic];
+    }
+}
+
 @end
